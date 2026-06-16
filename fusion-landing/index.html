@@ -16,8 +16,12 @@ h1,h2,h3,h4{font-family:var(--head);font-weight:900;text-transform:uppercase;let
 nav{position:fixed;inset:0 0 auto 0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(3,63,122,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12)}
 nav img.logo{height:38px}
 .nav-right{display:flex;align-items:center;gap:1rem}
-.lang-select{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:var(--white);padding:7px 12px;font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.05em;border-radius:3px;cursor:pointer;outline:none}
-.lang-select:focus{border-color:var(--red)}
+.lang-wrap{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:3px;padding:0 4px 0 10px;transition:border-color .2s}
+.lang-wrap:hover{border-color:var(--red)}
+.lang-globe{width:17px;height:17px;color:#fff;flex-shrink:0}
+.lang-label{font-family:var(--cond);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.lang-select{background:transparent;border:none;color:var(--white);padding:7px 8px 7px 4px;font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.05em;border-radius:3px;cursor:pointer;outline:none}
+.lang-select:focus{outline:none}
 .lang-select option{background:#222}
 .nav-cta{background:var(--red);color:#fff;border:none;padding:9px 22px;font-family:var(--cond);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s}
 .nav-cta:hover{background:var(--red-dk)}
@@ -91,18 +95,20 @@ section{padding:6rem 4rem}
 .cat-content{display:none;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1.5rem}
 .cat-content.active{display:grid}
 .product-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;overflow:hidden;transition:all .3s;position:relative;height:320px;display:flex;flex-direction:column}
+@media(hover:hover){
 .product-card:hover{border-color:var(--red);transform:translateY(-4px);background:#fff}
 .product-card:hover .prod-img{transform:scale(1.08)}
-.prod-img-wrap{background:#fff;height:190px;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:height .35s ease}
 .product-card:hover .prod-img-wrap{height:320px}
+.product-card:hover .prod-info{opacity:0}
+.product-card:hover .prod-badge{opacity:0}
+}
+.prod-img-wrap{background:#fff;height:190px;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:height .35s ease}
 .prod-img{height:150px;width:auto;transition:transform .3s;object-fit:contain}
 .prod-info{padding:1rem 1.1rem 1.2rem;flex:1;transition:opacity .25s ease}
-.product-card:hover .prod-info{opacity:0}
 .prod-cat{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
 .prod-name{font-family:var(--cond);font-size:1.05rem;font-weight:700;letter-spacing:.03em;margin-bottom:.4rem}
 .prod-desc{font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.5}
 .prod-badge{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px;z-index:2;transition:opacity .25s ease}
-.product-card:hover .prod-badge{opacity:0}
 .industries{background:var(--blue);color:var(--white)}.industries .section-title{color:var(--white)}.industries .divider{background:var(--red)}
 .industries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1000px;margin:0 auto}
 .industries-grid .ind-card:nth-child(4){grid-column:1/2;transform:translateX(calc(50% + .6rem))}
@@ -198,7 +204,7 @@ footer img{height:42px}
   nav img.logo{height:28px;order:0;margin-right:auto}
   .nav-right{order:1;display:flex;align-items:center;gap:.6rem}
   .nav-burger{display:flex;order:2;margin-left:.4rem}
-  .lang-select{display:none}
+  .lang-wrap{display:none}
   .nav-cta{display:inline-block;padding:7px 12px;font-size:11px}
 
   section{padding:3.5rem 1.25rem}
@@ -277,18 +283,22 @@ footer img{height:42px}
   <button class="nav-burger" id="nav-burger" aria-label="Cambiar idioma / Change language"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg></button>
   <img class="logo" src="https://static.wixstatic.com/media/5917e7_ce163324f55a44a397dc3d9e860d370e~mv2.png" alt="Fusion Epoxy">
   <div class="nav-right">
-    <select class="lang-select" id="lang-select" aria-label="Language">
-      <option value="en">EN English</option>
-      <option value="es">ES Español</option>
-      <option value="fr">FR Français</option>
-      <option value="de">DE Deutsch</option>
-      <option value="it">IT Italiano</option>
+    <div class="lang-wrap">
+      <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg>
+      <span class="lang-label" data-i18n="mm_language">Idioma</span>
+      <select class="lang-select" id="lang-select" aria-label="Language">
+        <option value="en">EN English</option>
+        <option value="es">ES Español</option>
+        <option value="fr">FR Français</option>
+        <option value="de">DE Deutsch</option>
+        <option value="it">IT Italiano</option>
       <option value="pl">PL Polski</option>
       <option value="nl">NL Nederlands</option>
       <option value="pt">PT Português</option>
       <option value="lv">LV Latviešu</option>
       <option value="fi">FI Suomi</option>
     </select>
+    </div>
     <button class="nav-cta" data-i18n="nav_cta" onclick="document.getElementById('distributor').scrollIntoView({behavior:'smooth'})">Become a Distributor</button>
   </div>
 </nav>
