@@ -242,13 +242,12 @@ footer img{height:42px}
   .cat-content.active{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:.85rem;padding-bottom:1rem;grid-template-columns:none}
   .cat-content.active::-webkit-scrollbar{height:4px}
   .cat-content.active::-webkit-scrollbar-thumb{background:rgba(255,255,255,.3);border-radius:2px}
-  .product-card{flex:0 0 64%;max-width:64%;scroll-snap-align:start;height:auto}
-  .product-card:hover .prod-img-wrap{height:160px}
-  .product-card:hover .prod-info{opacity:1}
-  .prod-img-wrap{height:160px}
-  .prod-img{height:125px}
-  .prod-info{padding:.7rem .8rem 1rem}
-  .prod-name{font-size:.95rem}
+  .product-card{flex:0 0 78%;max-width:78%;scroll-snap-align:start;height:auto}
+  .prod-img-wrap{height:210px}
+  .prod-img{height:175px}
+  .prod-info{padding:.85rem .9rem 1.1rem}
+  .prod-name{font-size:1rem}
+  .prod-desc{font-size:12px}
   .swipe-hint{display:block}
 
   /* why / industries grids */
@@ -266,12 +265,17 @@ footer img{height:42px}
 
   /* quality + footer */
   .quality{padding:3.5rem 1.5rem}
+  .quality p{text-align:center;font-size:.98rem;line-height:1.8;max-width:100%}
+  .quality-logo{height:56px;margin-bottom:1.4rem}
+  .quality-iso svg,.quality-iso img{width:110px;height:110px}
   footer{padding:2.5rem 1.5rem;flex-direction:column;text-align:center;align-items:center}
   .footer-info{align-items:center}
 }
 
 @media(max-width:420px){
-  .product-card{flex:0 0 74%;max-width:74%}
+  .product-card{flex:0 0 85%;max-width:85%}
+  .prod-img-wrap{height:200px}
+  .prod-img{height:165px}
   .hero-stats{gap:1.2rem 1.6rem}
   .hero-stat strong{font-size:1.7rem}
 }
