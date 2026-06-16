@@ -22,8 +22,8 @@ nav img.logo{height:38px}
 .nav-cta{background:var(--red);color:#fff;border:none;padding:9px 22px;font-family:var(--cond);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s}
 .nav-cta:hover{background:var(--red-dk)}
 
-.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:8px}
-.nav-burger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.25s}
+.nav-burger{display:none;align-items:center;justify-content:center;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:7px}
+.nav-burger svg{width:100%;height:100%;display:block}
 .mobile-menu{position:fixed;top:0;left:0;height:100%;width:82%;max-width:330px;background:var(--blue-dark);z-index:1000;transform:translateX(-100%);transition:transform .3s ease;padding:4.5rem 1.5rem 2rem;overflow-y:auto;-webkit-overflow-scrolling:touch;display:block}
 .mobile-menu.open{transform:translateX(0);box-shadow:8px 0 40px rgba(0,0,0,.4)}
 body.menu-open nav{opacity:0;pointer-events:none;transition:opacity .2s}
@@ -46,7 +46,7 @@ body.menu-open nav{opacity:0;pointer-events:none;transition:opacity .2s}
 .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
 .hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:0 0 0 4rem;position:relative;overflow:hidden;background:var(--black)}
 .hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.hero-video iframe{position:absolute;top:50%;left:50%;width:120%;height:120%;min-width:177.77vh;min-height:100vh;transform:translate(-50%,-50%);border:0}
+.hero-video video{position:absolute;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%);object-fit:cover}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(3,63,122,.62)}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0C0C0C 0%,#10131f 45%,#0C0C0C 100%);z-index:0}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(3,63,122,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(3,63,122,.07) 1px,transparent 1px);background-size:60px 60px;z-index:0}
@@ -140,11 +140,19 @@ section{padding:6rem 4rem}
 .retail-track{display:flex;align-items:center;width:max-content;animation:tickerReverse 35s linear infinite;padding:1.8rem 0;gap:0}
 .retail-track:hover{animation-play-state:paused}
 @keyframes tickerReverse{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-.retail-logo{display:flex;align-items:center;justify-content:center;padding:0 3rem;flex-shrink:0}
-.retail-logo img{height:55px;max-width:180px;object-fit:contain;transition:opacity .3s}
+.retail-logo{display:flex;align-items:center;justify-content:center;padding:0 3rem;flex-shrink:0;overflow:hidden}
+.retail-logo img{height:62px;width:auto;max-width:none;object-fit:contain;transition:opacity .3s}
+.retail-logo img.logo-wide{height:58px}
+.retail-logo img.logo-compact{height:66px}
+.retail-logo img.logo-small{height:48px}
+/* zoom para recortar aire transparente de cada PNG */
+.retail-logo img.zoom-walmart{transform:scale(1.7)}
+.retail-logo img.zoom-amazon{transform:scale(1.35)}
+.retail-logo img.zoom-vidri{transform:scale(1.85)}
+.retail-logo img.zoom-sinsa{transform:scale(1.5)}
 .retail-logo img:hover{opacity:.7}
 .retail-logo img.invert-dark{filter:brightness(0)}
-@media(max-width:768px){.retail-logo{padding:0 1.5rem}.retail-logo img{height:35px;max-width:100px}}
+@media(max-width:768px){.retail-logo{padding:0 1.5rem}.retail-logo img{height:40px;width:auto;max-width:none}.retail-logo img.logo-wide{height:37px}.retail-logo img.logo-compact{height:56px}.retail-logo img.logo-small{height:31px}}
 
 .country-section{background:linear-gradient(180deg,var(--blue-dark) 0%,#021d3a 100%);padding:3rem 0 3.2rem;position:relative;overflow:hidden}
 .country-head{text-align:center;margin-bottom:2rem;padding:0 1.5rem}
@@ -192,12 +200,15 @@ footer img{height:42px}
   .hero-stats{justify-content:center;gap:1.5rem 2rem;margin-top:2.5rem}
   .hero-stat strong{font-size:2rem}
   .hero-video{left:0}
-  .hero-video iframe{width:100vw;height:56.25vw;min-height:100vh;min-width:177.77vh}
+  .hero-video video{width:100%;height:100%;object-fit:cover}
   .hero-overlay{left:0}
 
   /* tickers a bit tighter */
   .retail-logo{padding:0 1.4rem}
-  .retail-logo img{height:34px;max-width:95px}
+  .retail-logo img{height:40px;width:auto;max-width:none}
+  .retail-logo img.logo-wide{height:37px}
+  .retail-logo img.logo-compact{height:56px}
+  .retail-logo img.logo-small{height:31px}
   .country-section{padding:2.2rem 0 2.4rem}
   .country-track{gap:.5rem}
   .country-item{padding:.5rem .85rem;gap:.4rem}
@@ -243,7 +254,7 @@ footer img{height:42px}
 <body>
 
 <nav>
-  <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-burger" id="nav-burger" aria-label="Cambiar idioma / Change language"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg></button>
   <img class="logo" src="https://static.wixstatic.com/media/5917e7_ce163324f55a44a397dc3d9e860d370e~mv2.png" alt="Fusion Epoxy">
   <div class="nav-right">
     <select class="lang-select" id="lang-select" aria-label="Language">
@@ -277,7 +288,7 @@ footer img{height:42px}
 <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
 <section class="hero">
-  <div class="hero-video"><iframe src="https://www.youtube.com/embed/IhECectcpMM?autoplay=1&mute=1&loop=1&playlist=IhECectcpMM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1" allow="autoplay; encrypted-media" title="Fusion Epoxy" loading="eager"></iframe></div>
+  <div class="hero-video"><video autoplay muted loop playsinline preload="auto" poster=""><source src="images/hero-video.mp4" type="video/mp4"></video></div>
   <div class="hero-overlay"></div>
   <div class="hero-glow"></div><div class="hero-glow2"></div>
   <div class="hero-left">
@@ -302,24 +313,24 @@ footer img{height:42px}
 
 <div class="retail-bar">
   <div class="retail-track">
-    <div class="retail-logo"><img src="https://1000marcas.net/wp-content/uploads/2020/02/Walmart-Logo-2008.png" alt="Walmart" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://static.vecteezy.com/system/resources/thumbnails/019/766/240/small/amazon-logo-amazon-icon-transparent-free-png.png" alt="Amazon" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Lowes_Companies_Logo.svg/960px-Lowes_Companies_Logo.svg.png" alt="Lowe's" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact zoom-walmart" src="https://1000marcas.net/wp-content/uploads/2020/02/Walmart-Logo-2008.png" alt="Walmart" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact zoom-amazon" src="https://static.vecteezy.com/system/resources/thumbnails/019/766/240/small/amazon-logo-amazon-icon-transparent-free-png.png" alt="Amazon" loading="lazy"></div>
+    <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Lowes_Companies_Logo.svg/960px-Lowes_Companies_Logo.svg.png" alt="Lowe.s" loading="lazy"></div>
     <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Ace_Hardware_Logo.svg/3840px-Ace_Hardware_Logo.svg.png" alt="Ace Hardware" loading="lazy"></div>
     <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Logotipo_Sodimac.svg" alt="Sodimac" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://www.casacravioto.com/media/logo/websites/1/Logo-Casa-Cravioto.png" alt="Casa Cravioto" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://vifer.mx/img/logo-foot.png" alt="Vifer" class="invert-dark" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://www.yalelatinoamerica.com/adobe/assets/urn:aaid:aem:9610f649-31f2-482e-a7cd-d0bb3f7fc499/as/LOGO-VIDRI.png" alt="VIDRI" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://www.creacomunicaciones.com/wp-content/uploads/2016/06/NUEVO-SINSA-NUEVO.png" alt="SINSA" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://1000marcas.net/wp-content/uploads/2020/02/Walmart-Logo-2008.png" alt="Walmart" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://static.vecteezy.com/system/resources/thumbnails/019/766/240/small/amazon-logo-amazon-icon-transparent-free-png.png" alt="Amazon" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Lowes_Companies_Logo.svg/960px-Lowes_Companies_Logo.svg.png" alt="Lowe's" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact" src="https://www.casacravioto.com/media/logo/websites/1/Logo-Casa-Cravioto.png" alt="Casa Cravioto" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact invert-dark" src="https://vifer.mx/img/logo-foot.png" alt="Vifer" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact" src="https://ferreteriavidri.com/public/images/Vidri_Alt.png" alt="VIDRI" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact" src="https://logosnicas.com/wp-content/uploads/2022/08/sinsa.png" alt="SINSA" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact zoom-walmart" src="https://1000marcas.net/wp-content/uploads/2020/02/Walmart-Logo-2008.png" alt="Walmart" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact zoom-amazon" src="https://static.vecteezy.com/system/resources/thumbnails/019/766/240/small/amazon-logo-amazon-icon-transparent-free-png.png" alt="Amazon" loading="lazy"></div>
+    <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Lowes_Companies_Logo.svg/960px-Lowes_Companies_Logo.svg.png" alt="Lowe.s" loading="lazy"></div>
     <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Ace_Hardware_Logo.svg/3840px-Ace_Hardware_Logo.svg.png" alt="Ace Hardware" loading="lazy"></div>
     <div class="retail-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Logotipo_Sodimac.svg" alt="Sodimac" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://www.casacravioto.com/media/logo/websites/1/Logo-Casa-Cravioto.png" alt="Casa Cravioto" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://vifer.mx/img/logo-foot.png" alt="Vifer" class="invert-dark" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://www.yalelatinoamerica.com/adobe/assets/urn:aaid:aem:9610f649-31f2-482e-a7cd-d0bb3f7fc499/as/LOGO-VIDRI.png" alt="VIDRI" loading="lazy"></div>
-    <div class="retail-logo"><img src="https://www.creacomunicaciones.com/wp-content/uploads/2016/06/NUEVO-SINSA-NUEVO.png" alt="SINSA" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact" src="https://www.casacravioto.com/media/logo/websites/1/Logo-Casa-Cravioto.png" alt="Casa Cravioto" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact invert-dark" src="https://vifer.mx/img/logo-foot.png" alt="Vifer" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact" src="https://ferreteriavidri.com/public/images/Vidri_Alt.png" alt="VIDRI" loading="lazy"></div>
+    <div class="retail-logo"><img class="logo-compact" src="https://logosnicas.com/wp-content/uploads/2022/08/sinsa.png" alt="SINSA" loading="lazy"></div>
   </div>
 </div>
 
