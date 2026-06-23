@@ -280,6 +280,123 @@ footer img{height:42px}
   .hero-stat strong{font-size:1.7rem}
 }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style id="fx-futuristic">
+:root{--neon:#2dd4ff;--neon-soft:rgba(45,212,255,.5);--space:#04070f;--space-2:#071326;--mono:'Space Mono',monospace;}
+
+/* ============ BASE ============ */
+body{background:var(--space);color:#e8eef7}
+/* faint scanline / CRT veil for sci-fi feel */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);mix-blend-mode:overlay;opacity:.35}
+
+/* ============ NAV ============ */
+nav{background:rgba(4,7,15,.72);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--neon-soft);box-shadow:0 0 30px rgba(45,212,255,.12)}
+.lang-wrap{background:rgba(45,212,255,.06);border:1px solid var(--neon-soft);border-radius:6px}
+.lang-wrap:hover{border-color:var(--neon);box-shadow:0 0 14px rgba(45,212,255,.35)}
+.lang-globe{color:var(--neon)}
+.nav-cta{background:linear-gradient(135deg,#FF0110,#b3000b);box-shadow:0 0 20px rgba(255,1,16,.4);border-radius:6px}
+.nav-cta:hover{background:linear-gradient(135deg,#ff3b48,#FF0110);box-shadow:0 0 30px rgba(255,1,16,.7)}
+
+/* ============ BUTTONS ============ */
+.btn-primary{background:linear-gradient(135deg,var(--neon),#0a52a0);color:#04070f;border:1px solid var(--neon);border-radius:6px;box-shadow:0 0 24px rgba(45,212,255,.3);font-weight:700}
+.btn-primary:hover{background:linear-gradient(135deg,#7fe7ff,#1e6fd0);color:#04070f;box-shadow:0 0 34px rgba(45,212,255,.55);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--neon-soft);border-radius:6px;color:#dff6ff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-outline:hover{border-color:var(--neon);background:rgba(45,212,255,.08);box-shadow:0 0 20px rgba(45,212,255,.25)}
+
+/* ============ HERO ============ */
+.hero{background:var(--space)}
+.hero-overlay{background:linear-gradient(115deg,rgba(4,7,15,.93) 0%,rgba(4,7,15,.62) 45%,rgba(7,33,63,.55) 100%)}
+.hero-glow{background:radial-gradient(circle,rgba(255,1,16,.18) 0%,transparent 70%);animation:fxpulse 6s ease-in-out infinite}
+.hero-glow2{background:radial-gradient(circle,rgba(45,212,255,.30) 0%,transparent 70%);animation:fxpulse 7.5s ease-in-out infinite}
+@keyframes fxpulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+.hero-tag{font-family:var(--mono);color:var(--neon);letter-spacing:.16em;text-shadow:0 0 12px rgba(45,212,255,.4)}
+.hero-tag::before{content:'// '}
+.hero h1{text-shadow:0 0 50px rgba(45,212,255,.22)}
+.hero h1 span{text-shadow:0 0 32px rgba(255,1,16,.65)}
+.brand-line{font-family:var(--mono);color:var(--neon);text-shadow:0 0 10px rgba(45,212,255,.35)}
+.hero-sub{color:rgba(220,235,245,.78)}
+.hero-stats{border-top:1px solid var(--neon-soft)}
+.hero-stat strong{color:#fff;text-shadow:0 0 18px rgba(45,212,255,.45)}
+.hero-stat span{font-family:var(--mono);color:rgba(45,212,255,.85)}
+
+/* ============ SECTION CHROME ============ */
+.section-tag{font-family:var(--mono);color:var(--neon);text-shadow:0 0 10px rgba(45,212,255,.3)}
+.section-tag::before{content:'// '}
+.section-title span{color:var(--neon);text-shadow:0 0 26px rgba(45,212,255,.4)}
+.divider{height:2px;width:92px;background:linear-gradient(90deg,var(--neon),transparent);box-shadow:0 0 12px rgba(45,212,255,.5)}
+
+/* dark, grid-lined backgrounds replacing flat blue */
+.why-us{background:
+  linear-gradient(rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  linear-gradient(90deg,rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  radial-gradient(circle at 18% -10%, #0a2747 0%, #04070f 55%)}
+.products{background:
+  linear-gradient(rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  linear-gradient(90deg,rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  radial-gradient(circle at 85% -10%, #0a2747 0%, #04070f 55%)}
+.industries{background:
+  linear-gradient(rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  linear-gradient(90deg,rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  radial-gradient(circle at 50% 120%, #0a2747 0%, #04070f 55%)}
+.distributor{background:
+  linear-gradient(rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  linear-gradient(90deg,rgba(45,212,255,.05) 1px,transparent 1px) 0 0/46px 46px,
+  radial-gradient(circle at 12% 0%, #0a2747 0%, #04070f 60%)}
+
+/* ============ WHY CARDS ============ */
+.why-grid{background:rgba(45,212,255,.13);border:1px solid rgba(45,212,255,.16)}
+.why-card{background:rgba(255,255,255,.03);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.why-card:hover{background:rgba(45,212,255,.07)}
+.why-card::before{background:linear-gradient(90deg,var(--neon),transparent);box-shadow:0 0 14px rgba(45,212,255,.6)}
+.why-num{-webkit-text-stroke:1px rgba(45,212,255,.55);color:transparent;text-shadow:0 0 22px rgba(45,212,255,.18)}
+
+/* ============ PRODUCTS ============ */
+.swipe-hint{font-family:var(--mono)}
+.cat-tab{font-family:var(--mono);border:1px solid var(--neon-soft);background:rgba(45,212,255,.05);color:#cfe9f5;border-radius:6px}
+.cat-tab.active,.cat-tab:hover{background:linear-gradient(135deg,var(--neon),#0a52a0);border-color:var(--neon);color:#04070f;box-shadow:0 0 20px rgba(45,212,255,.4)}
+.product-card{background:rgba(255,255,255,.03);border:1px solid rgba(45,212,255,.14);border-radius:10px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+@media(hover:hover){.product-card:hover{border-color:var(--neon);background:#fff;box-shadow:0 0 32px rgba(45,212,255,.32);transform:translateY(-6px)}}
+.prod-cat{color:var(--neon)}
+.prod-badge{background:linear-gradient(135deg,#FF0110,#b3000b);box-shadow:0 0 14px rgba(255,1,16,.5)}
+
+/* ============ INDUSTRIES ============ */
+.ind-card{background:rgba(255,255,255,.03);border:1px solid rgba(45,212,255,.14);border-radius:10px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ind-card:hover{border-color:var(--neon);background:rgba(45,212,255,.07);box-shadow:0 0 28px rgba(45,212,255,.25)}
+.ind-card::after{background:linear-gradient(90deg,var(--neon),transparent);box-shadow:0 0 12px rgba(45,212,255,.6)}
+.ind-icon{background:rgba(45,212,255,.08);border:1px solid var(--neon-soft);color:var(--neon)}
+.ind-card:hover .ind-icon{background:var(--neon);color:#04070f;box-shadow:0 0 24px rgba(45,212,255,.5)}
+
+/* ============ DISTRIBUTOR + FORM ============ */
+.dist-num{color:var(--neon);text-shadow:0 0 14px rgba(45,212,255,.45)}
+.dist-form{background:rgba(255,255,255,.03);border:1px solid rgba(45,212,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 0 40px rgba(45,212,255,.08)}
+.form-field input,.form-field select{background:rgba(4,7,15,.6);border:1px solid rgba(45,212,255,.22);border-radius:6px}
+.form-field input:focus,.form-field select:focus{border-color:var(--neon);box-shadow:0 0 0 2px rgba(45,212,255,.2)}
+.form-submit{background:linear-gradient(135deg,var(--neon),#0a52a0);color:#04070f;border-radius:6px;box-shadow:0 0 24px rgba(45,212,255,.35)}
+.form-submit:hover{background:linear-gradient(135deg,#7fe7ff,#1e6fd0);color:#04070f;box-shadow:0 0 32px rgba(45,212,255,.6)}
+.thanks-icon{background:var(--neon);color:#04070f;box-shadow:0 0 24px rgba(45,212,255,.5)}
+
+/* ============ COUNTRY TICKER ============ */
+.country-section{background:radial-gradient(circle at 50% -30%, #0a2747 0%, #021d3a 55%, #04070f 100%)}
+.country-eyebrow{font-family:var(--mono);color:var(--neon)}
+.country-title b{color:var(--neon);text-shadow:0 0 22px rgba(45,212,255,.4)}
+.country-item{background:rgba(45,212,255,.05);border:1px solid rgba(45,212,255,.15);border-radius:8px}
+.country-item:hover{background:rgba(45,212,255,.1);border-color:var(--neon);box-shadow:0 0 16px rgba(45,212,255,.3)}
+
+/* ============ RETAIL BAR (kept light for logos) ============ */
+.retail-label{font-family:var(--mono)}
+
+/* ============ QUALITY (clean spec-sheet contrast) ============ */
+.quality::before{background:linear-gradient(90deg,var(--neon),#FF0110)}
+.quality-pre{font-family:var(--mono)}
+
+/* ============ FOOTER ============ */
+footer{background:#04070f;border-top:1px solid var(--neon-soft);box-shadow:0 0 30px rgba(45,212,255,.08)}
+
+/* ============ MOBILE MENU ============ */
+.mobile-menu{background:rgba(4,7,15,.96);border-right:1px solid var(--neon-soft)}
+.mm-lang-label{color:var(--neon);font-family:var(--mono)}
+.mm-lang-grid button.active,.mm-lang-grid button:active{background:linear-gradient(135deg,var(--neon),#0a52a0);border-color:var(--neon);color:#04070f}
+</style>
 </head>
 <body>
 
